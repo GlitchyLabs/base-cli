@@ -5,7 +5,7 @@ jest.mock('../../../utils/logger');
 
 describe('Echo Module', () => {
     test('should log what we send it to the console', () => {
-        echo('test');
+        echo(undefined, 'test');
         expect(logger.info).toHaveBeenCalledWith('test');
     });
 })
