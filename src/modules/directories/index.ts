@@ -1,10 +1,19 @@
 import { program } from 'commander';
-import logger from '../../utils/logger';
+import { create, remove, rename } from './directory';
 
 program
-.command('dir ')
-.description('echo anything after the echo command')
-.action((text) => {
-    console.log(text);
-    logger.info(text);
-});
+.command('create <path>').alias('mk')
+.description('Create a folder(s) for the provided path.')
+.action(create);
+
+program
+.command('remove <path>').alias('rm')
+.description('Remove the folder(s) for the provided path.')
+.action(remove);
+
+program
+.command('rename <path> <newPath>').alias('mv')
+.description('Renames the provided path to the new path.')
+.action(rename)
+
+program.parse(process.argv);

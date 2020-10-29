@@ -8,7 +8,7 @@
     "cli": "dist/index.js"
   },
   "author": "dcbartlett",
-  "license": "UNLICENSE",
+  "license": "Unlicense",
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",

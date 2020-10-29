@@ -1,12 +1,14 @@
-import { program } from 'commander';
+import { Command } from 'commander';
 import logger from '../../utils/logger';
+const program = new Command();
 
-program
-.command('log [level]')
-.description('echo anything after the echo command')
-.action(log);
+program.action(log)
+.passCommandToAction(false);
+program.parse(process.argv);
 
-export default function log(level?) {
+// The first argument is normally the command, we setup not to send it, and then place an unused variable herebundleRenderer.renderToStream
+// This is due to the way commander handles this without a .command() call.  Will try to fix this later.
+export default function log(_, level?) {
     if (level) {
         logger[level](`${level} test`);
     } else {
